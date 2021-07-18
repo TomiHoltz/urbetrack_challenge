@@ -16,7 +16,6 @@ class DrawerBanner extends StatelessWidget {
           width: double.infinity,
           child: SvgPicture.asset(
             "assets/Mandalorian Helmet.svg",
-            color: Colors.white,
           ),
         ),
         Text(

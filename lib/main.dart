@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:urbetrack_challenge/constants.dart';
 import 'package:urbetrack_challenge/ui/HomeScreen/home_screen.dart';
 
 void main() {
@@ -13,7 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        primaryColor: primaryColor,
+        primarySwatch: Colors.grey
+      ),
       home: const MyHomePage(),
     );
   }
