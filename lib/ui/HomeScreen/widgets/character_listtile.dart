@@ -19,7 +19,7 @@ class CharacterListTile extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       title: Text(character.name!),
-      subtitle: Text(character.birthYear!),
+      //subtitle: Text(character.birthYear!),
       trailing: IconButton(
         onPressed: () {},
         icon: const Icon(Icons.arrow_forward_ios, color: darkColor),

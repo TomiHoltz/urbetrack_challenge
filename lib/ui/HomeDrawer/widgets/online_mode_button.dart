@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:urbetrack_challenge/constants.dart';
-
-final StateProvider<bool> isOnlineActive = StateProvider<bool>((ref) => false);
+import 'package:urbetrack_challenge/providers/providers.dart';
 
 class OnlineModeButton extends StatelessWidget {
   const OnlineModeButton({

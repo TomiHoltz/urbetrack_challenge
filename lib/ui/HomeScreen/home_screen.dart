@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:urbetrack_challenge/constants.dart';
 import 'package:urbetrack_challenge/models/character.dart';
+import 'package:urbetrack_challenge/providers/providers.dart';
 import 'package:urbetrack_challenge/ui/HomeDrawer/home_drawer.dart';
 import 'package:urbetrack_challenge/ui/HomeScreen/widgets/character_listtile.dart';
+import 'package:urbetrack_challenge/ui/HomeScreen/widgets/characters_list.dart';
 import 'package:urbetrack_challenge/ui/HomeScreen/widgets/home_title.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -28,20 +31,18 @@ class MyHomePage extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const HomeTitle(),
-              const SizedBox(height: defaultPadding),
-              CharacterListTile(
-                character: Character(
-                  name: "Yoda",
-                  birthYear: "1000"
-                ),
-              )
+            children: const[
+              HomeTitle(),
+              SizedBox(height: defaultPadding),
+              CharactersList(),
+              SizedBox(height: defaultPadding),
             ],
           ),
         ),
       ),
       drawer: const HomeDrawer(),
+      
     );
   }
 }
+
