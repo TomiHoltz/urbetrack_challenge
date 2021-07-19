@@ -11,19 +11,24 @@ final FutureProvider<List<Character>> charactersListRequest =
   (ref) async {
     List<Character> chList = [];
 
-    final response = await http.get(Uri.parse("https://swapi.dev/api/people"));
+    for (var i = 1; i < 6; i++) {
+      final response =
+          await http.get(Uri.parse("https://swapi.dev/api/people/?page=$i"));
 
-    if (response.statusCode == 200) {
-      String body = utf8.decode(response.bodyBytes);
-      final jsonData = jsonDecode(body);
-      final data = jsonData["results"];
+      if (response.statusCode == 200) {
+        String body = utf8.decode(response.bodyBytes);
+        final jsonData = jsonDecode(body);
+        final data = jsonData["results"];
 
-      for (var character in data) {
-        chList.add(Character(name: character["name"]));
+        for (var character in data) {
+          chList.add(Character(name: character["name"]));
+        }
+      } else {
+        return [Character(name: "Error")];
       }
-      return chList;
-    } else {
-      return [Character(name: "Error")];
     }
+    return chList;
   },
 );
+
+final StateProvider<String> searchResult = StateProvider<String>((ref) => "");

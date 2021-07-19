@@ -20,7 +20,7 @@ class CharactersList extends StatelessWidget {
               list.add(CharacterListTile(
                   character: Character(name: ch.name)));
             }
-            return Column(children: list);
+            return Column(children: list.where((element) => element.character.name!.contains(watch(searchResult).state)).toList());
           },
           loading: () =>  const Center(
             child: CircularProgressIndicator(),
