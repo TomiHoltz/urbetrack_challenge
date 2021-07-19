@@ -21,7 +21,19 @@ final FutureProvider<List<Character>> charactersListRequest =
         final data = jsonData["results"];
 
         for (var character in data) {
-          chList.add(Character(name: character["name"]));
+          chList.add(
+            Character(
+              name: character["name"] as String,
+              birthYear: character["birth_year"] as String,
+              eyeColor: character["eye_color"] as String,
+              gender: character["gender"] as String,
+              hairColor: character["hair_color"] as String,
+              height: character["height"] as String,
+              mass: character["mass"] as String,
+              skinColor: character["skin_color"] as String,
+              homeworld: character["homeworld"] as String,
+            ),
+          );
         }
       } else {
         return [Character(name: "Error")];

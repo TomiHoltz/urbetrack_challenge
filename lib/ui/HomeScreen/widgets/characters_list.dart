@@ -17,12 +17,29 @@ class CharactersList extends StatelessWidget {
           data: (data) {
             List<CharacterListTile> list = [];
             for (var ch in data) {
-              list.add(CharacterListTile(
-                  character: Character(name: ch.name)));
+              list.add(
+                CharacterListTile(
+                  character: Character(
+                    name: ch.name,
+                    birthYear: ch.birthYear,
+                    eyeColor: ch.eyeColor,
+                    gender: ch.gender,
+                    hairColor: ch.hairColor,
+                    height: ch.height,
+                    mass: ch.mass,
+                    skinColor: ch.skinColor,
+                    homeworld: ch.homeworld,
+                  ),
+                ),
+              );
             }
-            return Column(children: list.where((element) => element.character.name!.contains(watch(searchResult).state)).toList());
+            return Column(
+                children: list
+                    .where((element) => element.character.name!
+                        .contains(watch(searchResult).state))
+                    .toList());
           },
-          loading: () =>  const Center(
+          loading: () => const Center(
             child: CircularProgressIndicator(),
           ),
           error: (_, __) => const Text("Error"),
