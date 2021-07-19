@@ -8,6 +8,8 @@ class Character {
   String? mass;
   String? skinColor;
   String? homeworld;
+  List<String?>? vehicles;
+  List<String?>? starships;
 
   Character({
     this.name,
@@ -18,6 +20,8 @@ class Character {
     this.height,
     this.mass,
     this.skinColor,
-    this.homeworld
+    this.homeworld,
+    this.vehicles,
+    this.starships,
   });
 }
