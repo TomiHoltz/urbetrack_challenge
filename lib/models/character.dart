@@ -1,6 +1,5 @@
 class Character {
   String? name;
-  String? birthYear;
   String? eyeColor;
   String? gender;
   String? hairColor;
@@ -8,12 +7,11 @@ class Character {
   String? mass;
   String? skinColor;
   String? homeworld;
-  List<String?>? vehicles;
-  List<String?>? starships;
+  List<dynamic?>? vehiclesUrls;
+  List<dynamic?>? starshipsUrls;
 
   Character({
     this.name,
-    this.birthYear,
     this.eyeColor,
     this.gender,
     this.hairColor,
@@ -21,7 +19,7 @@ class Character {
     this.mass,
     this.skinColor,
     this.homeworld,
-    this.vehicles,
-    this.starships,
+    this.vehiclesUrls,
+    this.starshipsUrls,
   });
 }

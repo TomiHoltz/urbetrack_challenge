@@ -21,7 +21,6 @@ class CharactersList extends StatelessWidget {
                 CharacterListTile(
                   character: Character(
                     name: ch.name,
-                    birthYear: ch.birthYear,
                     eyeColor: ch.eyeColor,
                     gender: ch.gender,
                     hairColor: ch.hairColor,

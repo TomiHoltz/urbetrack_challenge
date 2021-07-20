@@ -31,12 +31,12 @@ class CharacterScreen extends StatelessWidget {
           child: Column(
             children: [
               NameAndImage(character: character),
-              const SizedBox(height: defaultPadding * 1.5),
+              const SizedBox(height: defaultPadding),
               InfoTexts(character: character),
               const SizedBox(height: defaultPadding),
               Container(
-                margin: const EdgeInsets.only(right: defaultPadding),
-                alignment: Alignment.centerRight,
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: const ReportButton(),
               ),
             ],
