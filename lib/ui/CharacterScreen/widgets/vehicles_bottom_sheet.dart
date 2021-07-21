@@ -25,6 +25,44 @@ class VehiclesBottomSheet extends StatelessWidget {
     ),
   );
 
+  Widget vehiclesList() {
+    List<Widget> listItems = [];
+    if (character.vehicles!.isNotEmpty) {
+      for (var vehicle in character.vehicles!) {
+        listItems.add(
+          vehicleListTile(vehicle!),
+        );
+      }
+    } else {
+      listItems.add(
+        Center(
+          child: Text("${character.name} has't got any vehicle"),
+        ),
+      );
+    }
+    return Column(
+      children: [
+        const SizedBox(height: defaultPadding / 2),
+        ...listItems
+      ],
+    );
+  }
+
+  Widget vehicleListTile(String vehicle) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.all(defaultPadding / 2),
+      padding: const EdgeInsets.all(defaultPadding / 2),
+      decoration: BoxDecoration(
+        border: Border.all(color: darkColor),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Text(
+        vehicle.toString(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,10 +71,7 @@ class VehiclesBottomSheet extends StatelessWidget {
           color: whiteColor, borderRadius: BorderRadius.circular(12)),
       child: SingleChildScrollView(
         child: Column(
-          children: [
-            divider,
-            text,
-          ],
+          children: [divider, text, vehiclesList()],
         ),
       ),
     );

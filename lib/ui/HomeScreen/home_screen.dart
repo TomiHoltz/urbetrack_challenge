@@ -17,7 +17,7 @@ class MyHomePage extends StatelessWidget {
           cursorColor: primaryColor,
           textCapitalization: TextCapitalization.sentences,
           decoration: const InputDecoration(
-            hintText: "Buscar",
+            hintText: "Search",
             suffixIcon: Icon(Icons.search),
           ),
           onChanged: (value) {

@@ -28,6 +28,8 @@ class CharactersList extends StatelessWidget {
                     mass: ch.mass,
                     skinColor: ch.skinColor,
                     homeworld: ch.homeworld,
+                    vehicles: ch.vehicles,
+                    starships: ch.starships
                   ),
                 ),
               );

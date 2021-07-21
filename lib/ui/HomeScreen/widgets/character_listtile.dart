@@ -17,10 +17,7 @@ class CharacterListTile extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: darkColor),
-          gradient: const LinearGradient(colors: [
-            primaryColor,
-            Colors.white,
-          ])),
+          color: whiteColor),
       margin: const EdgeInsets.only(
         bottom: 10,
         right: defaultPadding / 2,

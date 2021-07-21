@@ -21,6 +21,24 @@ final FutureProvider<List<Character>> charactersListRequest =
         final data = jsonData["results"];
 
         for (var character in data) {
+          final List<String> vehiclesList = [];
+          final List<String> starshipsList = [];
+          for (var vehicle in character["vehicles"]) {
+            final vehicleResponse =
+                await http.get(Uri.parse(vehicle.toString()));
+            String vehicleBody = utf8.decode(vehicleResponse.bodyBytes);
+            final vehicleJsonData = jsonDecode(vehicleBody);
+            vehiclesList.add(vehicleJsonData["name"]);
+          }
+
+          for (var starship in character["starships"]) {
+            final starshipResponse =
+                await http.get(Uri.parse(starship.toString()));
+            String starshipBody = utf8.decode(starshipResponse.bodyBytes);
+            final starshipJsonData = jsonDecode(starshipBody);
+            starshipsList.add(starshipJsonData["name"]);
+          }
+
           chList.add(
             Character(
               name: character["name"] as String,
@@ -31,8 +49,8 @@ final FutureProvider<List<Character>> charactersListRequest =
               mass: character["mass"] as String,
               skinColor: character["skin_color"] as String,
               homeworld: character["homeworld"] as String,
-              vehiclesUrls: character["vehicles"],
-              starshipsUrls: character["starships"],
+              vehicles: vehiclesList.isEmpty ? [] : vehiclesList,
+              starships: starshipsList.isEmpty ? [] : starshipsList,
             ),
           );
         }
