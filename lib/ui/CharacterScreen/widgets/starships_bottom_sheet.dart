@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:urbetrack_challenge/constants.dart';
 import 'package:urbetrack_challenge/models/character.dart';
 
-class VehiclesBottomSheet extends StatelessWidget {
-  VehiclesBottomSheet({Key? key, required this.character}) : super(key: key);
+class StarshipsBottomSheet extends StatelessWidget {
+  StarshipsBottomSheet({Key? key, required this.character}) : super(key: key);
 
   final Character character;
 
@@ -18,7 +17,7 @@ class VehiclesBottomSheet extends StatelessWidget {
   );
 
   final text = Text(
-    "Vehicles",
+    "Starships",
     style: GoogleFonts.lato(
       fontWeight: FontWeight.bold,
       fontSize: 16,
@@ -27,10 +26,10 @@ class VehiclesBottomSheet extends StatelessWidget {
 
   Widget vehiclesList() {
     List<Widget> listItems = [];
-    if (character.vehicles!.isNotEmpty) {
-      for (var vehicle in character.vehicles!) {
+    if (character.starships!.isNotEmpty) {
+      for (var starships in character.starships!) {
         listItems.add(
-          vehicleListTile(vehicle!),
+          starshipsListTile(starships!),
         );
       }
     } else {
@@ -39,7 +38,7 @@ class VehiclesBottomSheet extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: defaultPadding / 2),
-              Text("${character.name} hasn't got any vehicle"),
+              Text("${character.name} hasn't got any starship"),
             ],
           ),
         ),
@@ -48,7 +47,7 @@ class VehiclesBottomSheet extends StatelessWidget {
     return Column(children: listItems);
   }
 
-  Widget vehicleListTile(String vehicle) {
+  Widget starshipsListTile(String starship) {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.all(defaultPadding / 2),
@@ -58,7 +57,7 @@ class VehiclesBottomSheet extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Text(
-        vehicle.toString(),
+        starship.toString(),
       ),
     );
   }

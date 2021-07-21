@@ -57,6 +57,13 @@ class TextsList extends StatelessWidget {
             fontSize: 16,
           ),
         ),
+        const SizedBox(height: defaultPadding * 0.75),
+        Text(
+          "Homeworld: ${character.homeworld!}",
+          style: GoogleFonts.lato(
+            fontSize: 16,
+          ),
+        ),
       ],
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:urbetrack_challenge/models/character.dart';
 import 'package:urbetrack_challenge/ui/CharacterScreen/widgets/custom_button.dart';
-import 'package:urbetrack_challenge/ui/CharacterScreen/widgets/info_texts.dart';
+import 'package:urbetrack_challenge/ui/CharacterScreen/widgets/starships_bottom_sheet.dart';
 import 'package:urbetrack_challenge/ui/CharacterScreen/widgets/vehicles_bottom_sheet.dart';
 
 class VehiclesAndStarshipsButtons extends StatelessWidget {
@@ -32,7 +32,16 @@ class VehiclesAndStarshipsButtons extends StatelessWidget {
         ),
         CustomButton(
           text: "STARSHIPS",
-          onPressed: () {},
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              builder: (context) {
+                return StarshipsBottomSheet(character: character);
+              },
+            );
+          },
         ),
       ],
     );

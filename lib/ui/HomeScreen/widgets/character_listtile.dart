@@ -13,42 +13,53 @@ class CharacterListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: darkColor),
-          color: whiteColor),
-      margin: const EdgeInsets.only(
-        bottom: 10,
-        right: defaultPadding / 2,
-        left: defaultPadding / 2,
-      ),
-      child: ListTile(
-        leading: CircleAvatar(
-          child: SvgPicture.asset("assets/Mandalorian Helmet.svg"),
-          backgroundColor: Colors.transparent,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          PageTransition(
+            child: CharacterScreen(character: character),
+            type: PageTransitionType.rightToLeft,
+          ),
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: darkColor),
+            color: whiteColor),
+        margin: const EdgeInsets.only(
+          bottom: 10,
+          right: defaultPadding / 2,
+          left: defaultPadding / 2,
         ),
-        title: Text(character.name!),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text("Height: ${character.height!}cm"),
-            Text("Mass: ${character.mass!}"),
-            Text("Gender: ${character.gender!}"),
-          ],
-        ),
-        trailing: IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              PageTransition(
-                child: CharacterScreen(character: character),
-                type: PageTransitionType.rightToLeft,
-              ),
-            );
-          },
-          icon: const Icon(Icons.arrow_forward_ios, color: darkColor),
+        child: ListTile(
+          leading: CircleAvatar(
+            child: SvgPicture.asset("assets/Mandalorian Helmet.svg"),
+            backgroundColor: Colors.transparent,
+          ),
+          title: Text(character.name!),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text("Height: ${character.height!}cm"),
+              Text("Mass: ${character.mass!}"),
+              Text("Gender: ${character.gender!}"),
+            ],
+          ),
+          trailing: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                PageTransition(
+                  child: CharacterScreen(character: character),
+                  type: PageTransitionType.rightToLeft,
+                ),
+              );
+            },
+            icon: const Icon(Icons.arrow_forward_ios, color: darkColor),
+          ),
         ),
       ),
     );

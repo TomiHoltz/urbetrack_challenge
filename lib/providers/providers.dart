@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:urbetrack_challenge/models/character.dart';
 import 'package:http/http.dart' as http;
 
-final StateProvider<bool> isOnlineActive = StateProvider<bool>((ref) => false);
+final StateProvider<bool> isOnlineActive = StateProvider<bool>((ref) => true);
 
 final FutureProvider<List<Character>> charactersListRequest =
     FutureProvider<List<Character>>(
@@ -21,8 +21,10 @@ final FutureProvider<List<Character>> charactersListRequest =
         final data = jsonData["results"];
 
         for (var character in data) {
+
           final List<String> vehiclesList = [];
           final List<String> starshipsList = [];
+
           for (var vehicle in character["vehicles"]) {
             final vehicleResponse =
                 await http.get(Uri.parse(vehicle.toString()));
@@ -39,6 +41,11 @@ final FutureProvider<List<Character>> charactersListRequest =
             starshipsList.add(starshipJsonData["name"]);
           }
 
+          final homeworldResponse =
+                await http.get(Uri.parse(character["homeworld"]));
+          String homeworldBody = utf8.decode(homeworldResponse.bodyBytes);
+          final homeworldJsonData = jsonDecode(homeworldBody);
+
           chList.add(
             Character(
               name: character["name"] as String,
@@ -48,7 +55,7 @@ final FutureProvider<List<Character>> charactersListRequest =
               height: character["height"] as String,
               mass: character["mass"] as String,
               skinColor: character["skin_color"] as String,
-              homeworld: character["homeworld"] as String,
+              homeworld: homeworldJsonData["name"],
               vehicles: vehiclesList.isEmpty ? [] : vehiclesList,
               starships: starshipsList.isEmpty ? [] : starshipsList,
             ),

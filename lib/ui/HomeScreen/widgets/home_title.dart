@@ -15,7 +15,7 @@ class HomeTitle extends StatelessWidget {
         top: defaultPadding,
       ),
       child: Text(
-        "List de invasores",
+        "Invaders List",
         style: GoogleFonts.lato(
           fontWeight: FontWeight.bold,
           fontSize: 18,
