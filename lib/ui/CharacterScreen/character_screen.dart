@@ -37,7 +37,7 @@ class CharacterScreen extends StatelessWidget {
               Container(
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: defaultPadding),
-                child: const ReportButton(),
+                child: ReportButton(character: character),
               ),
             ],
           ),
