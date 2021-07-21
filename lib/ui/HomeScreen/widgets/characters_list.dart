@@ -43,7 +43,7 @@ class CharactersList extends StatelessWidget {
           loading: () => const Center(
             child: CircularProgressIndicator(),
           ),
-          error: (_, __) => const Text("Error"),
+          error: (e, st) => Text("$e, $st"),
         );
       },
     );

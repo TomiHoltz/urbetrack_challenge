@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:urbetrack_challenge/constants.dart';
 import 'package:urbetrack_challenge/splashscreen_page.dart';
-import 'package:urbetrack_challenge/ui/HomeScreen/home_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
