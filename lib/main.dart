@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:urbetrack_challenge/constants.dart';
+import 'package:urbetrack_challenge/splashscreen_page.dart';
 import 'package:urbetrack_challenge/ui/HomeScreen/home_screen.dart';
 
 void main() {
@@ -16,10 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'SW-INVASION',
       theme: ThemeData(
-        primaryColor: primaryColor,
+        primaryColor: whiteColor,
         primarySwatch: Colors.grey
       ),
-      home: const MyHomePage(),
+      home: const SplashScreenPage(),
     );
   }
 }
